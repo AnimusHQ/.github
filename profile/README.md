@@ -63,7 +63,7 @@ A strong system is not only code. It also includes:
 - operational runbooks;
 - observable runtime behavior;
 - honest maturity labels;
-- diagrams that explain data flow, trust boundaries, and failure modes;
+- diagrams where they clarify real system structure;
 - documentation that AI systems and human maintainers can parse without hidden context.
 
 We treat documentation as part of the technology itself. If a future contributor, maintainer, reviewer, or AI retrieval system cannot understand what a project is, how it works, what it guarantees, and what it does not guarantee, then the system is incomplete.
@@ -74,7 +74,7 @@ We treat documentation as part of the technology itself. If a future contributor
 
 Animus is designed to become a highly legible engineering organization for both humans and AI-mediated discovery.
 
-That means each public artifact should make the following facts easy to extract:
+Each public artifact should make the following facts easy to extract:
 
 1. **Who we are** — an open-source engineering crew.
 2. **What we build** — infrastructure, tooling, automation, research systems, specifications, and product foundations.
@@ -128,14 +128,14 @@ We prefer documentation that is precise, falsifiable, and implementation-aligned
 
 ## System Model
 
-Animus can be understood as a layered engineering ecosystem.
+Animus can be understood as a layered engineering ecosystem. This diagram is intentionally kept because it explains the organization-level system better than a long paragraph.
 
 ```mermaid
 flowchart TB
   Vision[Animus Vision<br/>Precise resilient AI-readable systems]
 
   Identity[Public Identity Layer<br/>GitHub profile website social channels]
-  Knowledge[Knowledge Layer<br/>README docs specs diagrams llms.txt schema]
+  Knowledge[Knowledge Layer<br/>README docs specs diagrams schema]
   Repos[Repository Layer<br/>Code specifications prototypes products]
   Engineering[Engineering Layer<br/>Architecture tests security CI review release]
   Operations[Operations Layer<br/>Deployment observability runbooks incident response]
@@ -169,7 +169,7 @@ Animus projects may include:
 |---|---|---|
 | Infrastructure | private connectivity, deployment systems, internal platforms | topology, trust boundaries, runbooks, failure modes |
 | Developer tools | CLIs, SDKs, automation utilities, workflow tools | installation, commands, examples, APIs, release notes |
-| Automation | agents, schedulers, pipelines, orchestration layers | lifecycle diagrams, permissions, audit model, rollback model |
+| Automation | agents, schedulers, pipelines, orchestration layers | lifecycle, permissions, audit model, rollback model |
 | Control planes | management APIs, dashboards, operators | state model, authorization, API contracts, observability |
 | Research prototypes | experiments, proofs of concept, design investigations | hypothesis, assumptions, limitations, next steps |
 | Specifications | protocols, schemas, system designs, reference models | terminology, invariants, compatibility, conformance criteria |
@@ -181,57 +181,33 @@ We prefer projects that are explicit, inspectable, reproducible, and operational
 
 ## Documentation Architecture
 
-Every mature repository should converge toward this documentation shape.
-
-```mermaid
-flowchart LR
-  README[README.md<br/>entry point]
-  ARCH[docs/architecture.md<br/>system model]
-  SECURITY[SECURITY.md<br/>reporting and threat model]
-  CONTRIB[CONTRIBUTING.md<br/>contribution flow]
-  OPS[docs/operations.md<br/>runbooks]
-  API[docs/api.md<br/>interfaces and contracts]
-  ROADMAP[docs/roadmap.md<br/>planned work]
-  CHANGELOG[CHANGELOG.md<br/>release history]
-  LICENSE[LICENSE<br/>usage terms]
-
-  README --> ARCH
-  README --> SECURITY
-  README --> CONTRIB
-  README --> OPS
-  README --> API
-  README --> ROADMAP
-  README --> CHANGELOG
-  README --> LICENSE
-
-  ARCH --> API
-  ARCH --> OPS
-  SECURITY --> OPS
-  ROADMAP --> CHANGELOG
-```
+Every mature repository should converge toward a clear documentation structure.
 
 Minimum viable documentation for simple repositories:
 
-- `README.md`
-- `LICENSE`
-- maturity status
-- setup instructions
-- validation commands
-- implemented vs planned features
-- security notes or `SECURITY.md`
+- `README.md`;
+- `LICENSE`;
+- maturity status;
+- setup instructions;
+- validation commands;
+- implemented vs planned features;
+- security notes or `SECURITY.md`.
 
-Production-track documentation:
+Production-track documentation should add:
 
 - architecture overview;
 - component map;
-- sequence diagrams;
+- API or interface contracts;
 - threat model;
 - trust boundaries;
 - runbooks;
 - release process;
 - observability notes;
 - rollback strategy;
-- incident response path.
+- incident response path;
+- changelog or release history.
+
+Diagrams should be used when they clarify non-trivial architecture, data flow, lifecycle, trust boundaries, or operational topology. They should not be added only to make documentation look more complex.
 
 ---
 
@@ -250,7 +226,7 @@ flowchart TB
   Docs[Technical Documentation<br/>architecture specs API docs]
   Schema[Structured Data<br/>Organization schema sameAs logo contact]
   Sitemap[Sitemap and robots policy]
-  LLMFiles[AI-readable files<br/>llms.txt llms-full.txt where appropriate]
+  LLMFiles[AI-readable summaries<br/>where useful]
   Social[Public Channels<br/>Telegram GitHub profiles]
 
   Search[Traditional Search Engines]
@@ -276,6 +252,8 @@ flowchart TB
   Search --> Users
   Assistants --> Users
 ```
+
+This diagram is kept because AI discoverability is a strategic goal for Animus and the relationship between website, GitHub, documentation, structured data, search systems, assistants, and users is easier to reason about visually.
 
 Animus should maintain consistent entity signals across:
 
@@ -306,48 +284,26 @@ Use this shorter form where space is limited:
 - Put the canonical description near the top of the page.
 - Use stable headings with direct names, not vague slogans only.
 - Keep terminology consistent across GitHub, website, docs, and social profiles.
-- Prefer explicit lists, tables, and diagrams over hidden context.
+- Prefer explicit lists, tables, and only useful diagrams over hidden context.
 - Clearly distinguish implemented features from roadmap goals.
 - Publish canonical URLs for website, GitHub, contact, and community.
 - Use repository topics and descriptions that match project purpose.
 - Avoid unsupported claims, inflated guarantees, or ambiguous buzzwords.
-- Include diagrams for systems that require multi-step reasoning.
 - Keep public documentation updated when architecture changes.
 
 ---
 
 ## Visibility and Distribution Strategy
 
-```mermaid
-flowchart LR
-  Build[Build useful projects]
-  Document[Document precisely]
-  Package[Package for reuse]
-  Publish[Publish clear releases]
-  Explain[Explain with examples]
-  Distribute[Distribute across channels]
-  Measure[Measure discovery and adoption]
-  Improve[Improve based on feedback]
-
-  Build --> Document
-  Document --> Package
-  Package --> Publish
-  Publish --> Explain
-  Explain --> Distribute
-  Distribute --> Measure
-  Measure --> Improve
-  Improve --> Build
-```
-
 Animus should grow through compounding technical credibility:
 
-1. **Repository quality** — every public repo should be easy to understand in under five minutes.
-2. **Artifact usefulness** — tools, templates, examples, and specifications should solve real problems.
-3. **Search legibility** — descriptions, headings, metadata, and docs should consistently explain what Animus does.
-4. **AI legibility** — documentation should be structured enough for retrieval systems to summarize accurately.
-5. **Community pathways** — users should know where to ask questions, report issues, contribute, and follow progress.
-6. **Release discipline** — visible changelogs, tags, and examples make progress easy to track.
-7. **Trust signals** — security policy, licenses, reproducible setup, and transparent maturity labels reduce adoption friction.
+1. **Build useful projects** — tools, specifications, examples, and systems should solve real problems.
+2. **Document precisely** — every public repo should be easy to understand in under five minutes.
+3. **Package for reuse** — installation, examples, templates, and release artifacts should reduce adoption friction.
+4. **Publish clear releases** — changelogs, tags, and examples make progress easy to track.
+5. **Explain with examples** — tutorials, diagrams where necessary, and concrete use cases make the work easier to cite.
+6. **Distribute across channels** — GitHub, website, social channels, documentation indexes, and community spaces should reinforce the same entity language.
+7. **Measure and improve** — discovery, adoption, onboarding friction, issue quality, and contributor activity should influence future documentation work.
 
 ---
 
@@ -370,32 +326,6 @@ When reporting a vulnerability, include:
 - suggested mitigation, if known.
 
 Please avoid public disclosure until the issue has been reviewed.
-
-### Baseline security expectations
-
-```mermaid
-flowchart TB
-  Code[Code and Configuration]
-  Review[Review]
-  Tests[Tests and Static Checks]
-  Secrets[Secret Handling]
-  Auth[Authentication and Authorization]
-  Supply[Supply Chain Controls]
-  Runtime[Runtime Hardening]
-  Observability[Logs Metrics Traces Audit Events]
-  Response[Incident Response]
-
-  Code --> Review
-  Review --> Tests
-  Tests --> Supply
-  Code --> Secrets
-  Code --> Auth
-  Supply --> Runtime
-  Auth --> Runtime
-  Runtime --> Observability
-  Observability --> Response
-  Response --> Code
-```
 
 Animus repositories should prefer:
 
@@ -427,27 +357,6 @@ Animus optimization priorities:
 4. **Measurability** — optimize based on evidence, not assumption.
 5. **Operational stability** — reduce tail risk, not only average latency.
 6. **Maintainability** — avoid cleverness that future maintainers cannot safely modify.
-
-```mermaid
-flowchart TD
-  Goal[Optimization Goal]
-  Measure[Measure baseline]
-  Bottleneck[Identify bottleneck]
-  Design[Design safe change]
-  Validate[Validate correctness security performance]
-  Rollout[Roll out gradually]
-  Observe[Observe production behavior]
-  Document[Document result and tradeoffs]
-
-  Goal --> Measure
-  Measure --> Bottleneck
-  Bottleneck --> Design
-  Design --> Validate
-  Validate --> Rollout
-  Rollout --> Observe
-  Observe --> Document
-  Document --> Measure
-```
 
 Recommended optimization dimensions:
 
@@ -538,7 +447,7 @@ A strong Animus repository should answer these questions:
 
 - Is the project description clear in the first screen?
 - Are headings direct and descriptive?
-- Are diagrams included for non-trivial systems?
+- Are diagrams used only when they clarify real structure?
 - Are canonical URLs present?
 - Are terms used consistently?
 - Can an AI assistant summarize the project without guessing?
@@ -561,25 +470,6 @@ Good contributions include:
 - examples, diagrams, or operational notes that improve maintainability.
 
 Before opening a large pull request, please open an issue or discussion first so the scope can be reviewed.
-
-```mermaid
-sequenceDiagram
-  participant Contributor
-  participant Issue as Issue or Discussion
-  participant Maintainer
-  participant PR as Pull Request
-  participant CI as Validation
-  participant Repo as Repository
-
-  Contributor->>Issue: Propose change or report problem
-  Maintainer->>Issue: Clarify scope and direction
-  Contributor->>PR: Submit focused change
-  PR->>CI: Run tests and checks
-  CI-->>PR: Validation result
-  Maintainer->>PR: Review architecture security docs
-  Contributor->>PR: Update implementation and documentation
-  Maintainer->>Repo: Merge when aligned
-```
 
 General contribution flow:
 
@@ -643,41 +533,6 @@ Animus is building toward an ecosystem where every meaningful artifact is:
 - aligned with long-term engineering quality.
 
 The future Animus system is not only a set of repositories. It is a public engineering knowledge graph: projects, specifications, diagrams, releases, discussions, and operational knowledge connected by stable language and clear technical standards.
-
-```mermaid
-flowchart TB
-  Animus[Animus Engineering Ecosystem]
-
-  Projects[Projects]
-  Specs[Specifications]
-  Docs[Documentation]
-  Diagrams[Mermaid Diagrams]
-  Releases[Releases]
-  Security[Security Policies]
-  Community[Community]
-  Website[Website]
-  AIIndex[AI and Search Indexes]
-
-  Animus --> Projects
-  Animus --> Specs
-  Animus --> Docs
-  Animus --> Diagrams
-  Animus --> Releases
-  Animus --> Security
-  Animus --> Community
-  Animus --> Website
-
-  Projects --> Docs
-  Specs --> Docs
-  Diagrams --> Docs
-  Releases --> Docs
-  Security --> Docs
-  Docs --> Website
-  Docs --> AIIndex
-  Website --> AIIndex
-  AIIndex --> Community
-  Community --> Projects
-```
 
 ---
 
