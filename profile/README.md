@@ -4,8 +4,6 @@
   </a>
 </p>
 
-<h1 align="center">Animus</h1>
-
 <p align="center">
   <strong>Open-source engineering crew building secure infrastructure, resilient control planes, developer tools, automation systems, and AI-readable digital products.</strong>
 </p>
