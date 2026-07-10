@@ -119,7 +119,7 @@ For substantial changes, open an issue or discussion before investing in a large
 
 Security-sensitive reports should **not** be submitted through public issues or public community chat.
 
-Contact: **rewanderer@proton.me**
+Contact: **animusecho@proton.me**
 
 A useful report includes the affected repository and revision, reproduction steps, expected impact, affected configuration, and any logs or proof of concept that are safe to share.
 
