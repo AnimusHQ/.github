@@ -15,8 +15,6 @@
 <p align="center">
   <a href="https://github.com/AnimusHQ/link">Animus Link</a>
   ·
-  <a href="https://kapakka.org">Website</a>
-  ·
   <a href="https://t.me/animuscrew">Community</a>
   ·
   <a href="https://t.me/animus_link_bot">Get access</a>
