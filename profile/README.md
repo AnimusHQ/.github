@@ -136,7 +136,6 @@ Read the repository README, status documents, security policy, and `LICENSE` fil
 ## Follow the work
 
 - **GitHub:** [github.com/AnimusHQ](https://github.com/AnimusHQ)
-- **Website:** [kapakka.org](https://kapakka.org)
 - **Community:** [t.me/animuscrew](https://t.me/animuscrew)
 - **Animus Link access:** [t.me/animus_link_bot](https://t.me/animus_link_bot)
 
