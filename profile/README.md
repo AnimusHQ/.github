@@ -1,7 +1,5 @@
 <p align="center">
-  <a href="https://kapakka.org">
     <img src="https://raw.githubusercontent.com/AnimusHQ/.github/main/assets/animus-banner.png" alt="Animus — Freedom is architecture" width="100%" />
-  </a>
 </p>
 
 <h1 align="center">Animus</h1>
